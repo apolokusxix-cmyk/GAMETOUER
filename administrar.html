@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b1c">
+  <title>Administrar · La Defensa de los Portales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell admin-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="La Defensa de los Portales, inicio">
+        <span class="brand-mark">✦</span>
+        <span><strong>LA DEFENSA</strong><small>DE LOS PORTALES</small></span>
+      </a>
+      <div class="season-tag"><span class="season-dot"></span> PANEL DEL GUARDIÁN</div>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a class="nav-button" href="index.html">⚔ <span>Batalla</span></a>
+        <a class="nav-button active" href="administrar.html">⚙ <span>Administrar</span></a>
+      </nav>
+    </header>
+    <main class="admin-main">
+      <a class="back-link" href="index.html">← Volver a la batalla</a>
+      <div class="admin-title-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> CONFIGURACIÓN DE CAMPAÑA</div><h1>Administrar<br><em>la partida.</em></h1><p>Ajusta el reto y decide cuántos puntos otorga cada enemigo.</p></div><div class="admin-crest">✦</div></div>
+      <div class="admin-grid">
+        <section class="admin-card difficulty-card">
+          <div class="admin-card-head"><span class="admin-icon">◈</span><div><span class="section-kicker">NIVEL DE RETO</span><h2>Dificultad</h2></div></div>
+          <p class="admin-copy">La dificultad modifica la vida y velocidad de los enemigos. Normal conserva los valores base que definiste.</p>
+          <div class="difficulty-options" id="difficultyOptions">
+            <label class="difficulty-option"><input type="radio" name="difficulty" value="easy"><span class="diff-glyph">✧</span><span><b>Tranquilo</b><small>Enemigos algo más lentos y débiles</small></span></label>
+            <label class="difficulty-option"><input type="radio" name="difficulty" value="normal"><span class="diff-glyph">✦</span><span><b>Normal</b><small>La experiencia equilibrada</small></span></label>
+            <label class="difficulty-option"><input type="radio" name="difficulty" value="hard"><span class="diff-glyph">✹</span><span><b>Difícil</b><small>Más resistencia y velocidad</small></span></label>
+            <label class="difficulty-option"><input type="radio" name="difficulty" value="nightmare"><span class="diff-glyph">☠</span><span><b>Pesadilla</b><small>Solo para guardianes expertos</small></span></label>
+          </div>
+          <div class="difficulty-readout"><span>Multiplicador de vida</span><strong id="hpFactorLabel">×1,00</strong><span>Velocidad de avance</span><strong id="speedFactorLabel">×1,00</strong></div>
+        </section>
+
+        <section class="admin-card rewards-card">
+          <div class="admin-card-head"><span class="admin-icon">✦</span><div><span class="section-kicker">RECOMPENSAS</span><h2>Puntos por enemigo</h2></div></div>
+          <p class="admin-copy">Los puntos se suman al derrotar a cada tropa. Cada esqueleto pequeño soltado por un globo da 5 puntos de forma predeterminada.</p>
+          <div class="reward-list">
+            <label class="reward-row"><span class="reward-badge bone-badge">♟</span><span class="reward-name"><b>Esqueleto pequeño</b><small>Incluye los que caen de los globos</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="skeleton"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge lilac-badge">♟</span><span class="reward-name"><b>Esqueleto de ojos lilas</b><small>Tropa terrestre · 100 de vida base</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="lilac"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge dark-badge">☁</span><span class="reward-name"><b>Globo de calavera negra</b><small>Tropa aérea · 200 de vida base</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="blackBalloon"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge sky-badge">☁</span><span class="reward-name"><b>Globo de calavera lila</b><small>Tropa aérea · 300 de vida base</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="purpleBalloon"><i>pts</i></span></label>
+          </div>
+          <div class="admin-actions"><button class="secondary-button" id="resetSettings">Restaurar valores iniciales</button><span class="save-status" id="saveStatus">Guardado automáticamente</span></div>
+        </section>
+      </div>
+      <section class="admin-card rules-card">
+        <div class="admin-card-head"><span class="admin-icon">⌖</span><div><span class="section-kicker">REGLAS DEL SENDERO</span><h2>Valores iniciales del juego</h2></div></div>
+        <div class="rules-grid">
+          <div class="rule-item"><span>OLEADAS AÉREAS</span><b>Desde la oleada 5</b><small>Un globo cada 5 oleadas; alternan negro y lila.</small></div>
+          <div class="rule-item"><span>GLOBOS</span><b>200 / 300 de vida</b><small>Negro / lila · dejan esqueletos pequeños en la ruta.</small></div>
+          <div class="rule-item"><span>ESQUELETOS</span><b>50 / 100 de vida</b><small>Normal / ojos lilas.</small></div>
+          <div class="rule-item"><span>TORRES</span><b>4 familias mejorables</b><small>Mortero: solo tropas terrestres.</small></div>
+        </div>
+      </section>
+      <footer class="game-footer"><span>© LA DEFENSA DE LOS PORTALES</span><span>Los cambios se guardan en este dispositivo <b>✦</b></span><a href="index.html">VOLVER AL MAPA ↗</a></footer>
+    </main>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>

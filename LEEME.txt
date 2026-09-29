@@ -1,0 +1,15 @@
+LA DEFENSA DE LOS PORTALES
+
+Cómo iniciar
+1. Extrae la carpeta completa si recibiste un archivo comprimido.
+2. Haz doble clic en iniciar.bat.
+3. Se abrirá el juego en tu navegador. Deja abierta la ventana negra mientras juegas.
+4. Para cerrar el servidor, vuelve a esa ventana y pulsa Ctrl+C.
+
+Necesita Python 3 instalado en Windows. No necesita instalar bibliotecas adicionales ni conectarse a internet.
+
+La página Administrar permite ajustar la dificultad y los puntos por enemigo. Esos valores se guardan en el dispositivo desde el que juegas.
+
+Los mapas y los sprites de las torres están guardados en assets. Mantén esa carpeta junto a los demás archivos.
+
+Las guías de movimiento de las tropas terrestres y aéreas no se dibujan en el mapa. Los globos vuelan por la ruta alternativa; los esqueletos que dejan caer aterrizan sobre el camino de arena.

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b1c">
+  <title>La Defensa de los Portales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="La Defensa de los Portales, inicio">
+        <span class="brand-mark">✦</span>
+        <span><strong>LA DEFENSA</strong><small>DE LOS PORTALES</small></span>
+      </a>
+      <div class="season-tag"><span class="season-dot"></span> CAMPAÑA · BOSQUE ESMERALDA</div>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button class="nav-button active" id="battleNav">⚔ <span>Batalla</span></button>
+        <a class="nav-button" href="administrar.html">⚙ <span>Administrar</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="setupScreen" class="setup-screen">
+        <div class="setup-intro">
+          <div class="eyebrow"><span class="eyebrow-line"></span> LAS PUERTAS VUELVEN A ABRIRSE</div>
+          <h1>Defiende el<br><em>corazón del bosque.</em></h1>
+          <p>Elige un sendero, prepara tus torres y no dejes que el ejército de esqueletos alcance el portal.</p>
+          <div class="feature-row">
+            <span><b>03</b> mapas</span><i></i><span><b>04</b> torres</span><i></i><span><b>∞</b> oleadas</span>
+          </div>
+        </div>
+
+        <div class="map-section-head">
+          <div><span class="section-kicker">PRIMERA MISIÓN</span><h2>Escoge tu campo de batalla</h2></div>
+          <span class="map-count">01 — 03</span>
+        </div>
+
+        <div class="map-select-grid" id="mapSelectGrid" role="list"></div>
+
+        <div class="setup-bottom">
+          <div class="mission-note"><span class="note-icon">✦</span><span><b>Consejo del guardián</b><small>Los globos aparecen desde la oleada 5. Coloca torres que alcancen a enemigos del aire.</small></span></div>
+          <button class="primary-button" id="startGameButton">Preparar defensa <span>→</span></button>
+        </div>
+      </section>
+
+      <section id="battleScreen" class="battle-screen hidden">
+        <div class="battle-heading">
+          <div>
+            <a href="#" id="backToMaps" class="back-link">← Cambiar mapa</a>
+            <h1 id="battleMapTitle">Sendero del Guardián</h1>
+          </div>
+          <div class="status-cluster">
+            <div class="stat-pill lives-pill"><span class="stat-icon">♥</span><span><small>PORTAL</small><strong id="livesValue">20</strong></span></div>
+            <div class="stat-pill coin-pill"><span class="stat-icon">◆</span><span><small>ORO</small><strong id="goldValue">300</strong></span></div>
+            <div class="stat-pill score-pill"><span class="stat-icon">✦</span><span><small>PUNTOS</small><strong id="scoreValue">0</strong></span></div>
+            <div class="stat-pill wave-pill"><span class="stat-icon">⚑</span><span><small>OLEADA</small><strong id="waveValue">0</strong></span></div>
+          </div>
+        </div>
+
+        <div class="battle-layout">
+          <section class="arena-column" aria-label="Campo de batalla">
+            <div class="arena-frame">
+              <canvas id="gameCanvas" width="1672" height="941" aria-label="Mapa del juego; toca un puesto para colocar una torre"></canvas>
+              <div id="arenaOverlay" class="arena-overlay">
+                <span class="overlay-sigil">✦</span>
+                <strong>El sendero está en calma</strong>
+                <small>Coloca tus torres y prepara la primera oleada.</small>
+              </div>
+              <div class="arena-corner arena-corner-tl"></div><div class="arena-corner arena-corner-tr"></div>
+              <div class="arena-corner arena-corner-bl"></div><div class="arena-corner arena-corner-br"></div>
+              <div class="map-badge"><span class="live-dot"></span> EN DEFENSA <span class="badge-separator">·</span><span id="mapBadgeName">SENDERO I</span></div>
+              <div class="arena-legend"><span class="legend-ground"></span> TERRESTRE <span class="legend-air"></span> AÉREO</div>
+            </div>
+            <div class="arena-footer">
+              <div class="battle-message" id="battleMessage"><span class="message-spark">✦</span> Elige un puesto y construye tu primera torre.</div>
+              <div class="wave-controls">
+                <button class="icon-button" id="pauseButton" title="Pausar" aria-label="Pausar">Ⅱ</button>
+                <button class="icon-button speed-button" id="speedButton" title="Velocidad" aria-label="Cambiar velocidad">1×</button>
+                <button class="primary-button wave-button" id="waveButton">Iniciar oleada <span>→</span></button>
+              </div>
+            </div>
+          </section>
+
+          <aside class="command-panel" aria-label="Panel de torres">
+            <div class="panel-heading"><div><span class="section-kicker">ARSENAL</span><h2 id="panelTitle">Tus defensas</h2></div><span class="tower-counter" id="towerCount">0 / 10</span></div>
+            <p class="panel-subtitle" id="panelSubtitle">Toca un puesto del mapa para construir.</p>
+            <div id="detailPanel" class="detail-panel">
+              <div class="empty-selection"><span class="empty-glyph">⌖</span><strong>Sin puesto seleccionado</strong><small>Escoge un espacio rojo en el mapa para ver tus opciones.</small></div>
+            </div>
+            <div class="panel-divider"></div>
+            <div class="intel-card">
+              <div class="intel-title"><span>✦</span> INFORME DEL EXPLORADOR</div>
+              <p id="intelText">Todos los puestos del mapa pueden recibir una torre. Los morteros solo alcanzan tropas terrestres.</p>
+              <div class="enemy-chips"><span class="enemy-chip"><img src="assets/esqueleto_pixel.png" alt="">HUESOS</span><span class="enemy-chip purple-chip"><img src="assets/esqueleto_lila_pixel.png" alt="">SOMBRA LILA</span><span class="enemy-chip sky-chip"><img src="assets/globo_negro_pixel.png" alt=""><img src="assets/globo_lila_pixel.png" alt="">GLOBOS · 5+</span></div>
+            </div>
+            <div class="panel-bottom"><span class="keyboard-hint">ATAJOS</span><span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> Elegir torre</span></div>
+          </aside>
+        </div>
+
+        <footer class="game-footer"><span>© LA DEFENSA DE LOS PORTALES</span><span>Hecho para proteger este bosque <b>✦</b></span><a href="administrar.html">AJUSTES DE PARTIDA ↗</a></footer>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
