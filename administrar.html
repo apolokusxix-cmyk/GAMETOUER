@@ -26,24 +26,32 @@
       <div class="admin-grid">
         <section class="admin-card difficulty-card">
           <div class="admin-card-head"><span class="admin-icon">◈</span><div><span class="section-kicker">NIVEL DE RETO</span><h2>Dificultad</h2></div></div>
-          <p class="admin-copy">La dificultad modifica la vida y velocidad de los enemigos. Normal conserva los valores base que definiste.</p>
+          <p class="admin-copy">La dificultad modifica la vida y velocidad de los enemigos y el precio en oro de las torres. Los enemigos normales también ganan vida con cada oleada; los jefes se endurecen en el tramo final.</p>
           <div class="difficulty-options" id="difficultyOptions">
             <label class="difficulty-option"><input type="radio" name="difficulty" value="easy"><span class="diff-glyph">✧</span><span><b>Tranquilo</b><small>Enemigos algo más lentos y débiles</small></span></label>
             <label class="difficulty-option"><input type="radio" name="difficulty" value="normal"><span class="diff-glyph">✦</span><span><b>Normal</b><small>La experiencia equilibrada</small></span></label>
             <label class="difficulty-option"><input type="radio" name="difficulty" value="hard"><span class="diff-glyph">✹</span><span><b>Difícil</b><small>Más resistencia y velocidad</small></span></label>
             <label class="difficulty-option"><input type="radio" name="difficulty" value="nightmare"><span class="diff-glyph">☠</span><span><b>Pesadilla</b><small>Solo para guardianes expertos</small></span></label>
           </div>
-          <div class="difficulty-readout"><span>Multiplicador de vida</span><strong id="hpFactorLabel">×1,00</strong><span>Velocidad de avance</span><strong id="speedFactorLabel">×1,00</strong></div>
+          <div class="difficulty-readout"><span>Multiplicador de vida</span><strong id="hpFactorLabel">×1,00</strong><span>Velocidad de avance</span><strong id="speedFactorLabel">×1,00</strong><span>Precio de torres en oro</span><strong id="costFactorLabel">×1,00</strong></div>
         </section>
 
         <section class="admin-card rewards-card">
           <div class="admin-card-head"><span class="admin-icon">✦</span><div><span class="section-kicker">RECOMPENSAS</span><h2>Puntos por enemigo</h2></div></div>
-          <p class="admin-copy">Los puntos se suman al derrotar a cada tropa. Cada esqueleto pequeño soltado por un globo da 5 puntos de forma predeterminada.</p>
+          <p class="admin-copy">Los puntos se suman al derrotar a cada tropa. Los esqueletos invocados por globos, barco y bruja cuentan como tropas derrotables.</p>
           <div class="reward-list">
             <label class="reward-row"><span class="reward-badge bone-badge">♟</span><span class="reward-name"><b>Esqueleto pequeño</b><small>Incluye los que caen de los globos</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="skeleton"><i>pts</i></span></label>
             <label class="reward-row"><span class="reward-badge lilac-badge">♟</span><span class="reward-name"><b>Esqueleto de ojos lilas</b><small>Tropa terrestre · 100 de vida base</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="lilac"><i>pts</i></span></label>
             <label class="reward-row"><span class="reward-badge dark-badge">☁</span><span class="reward-name"><b>Globo de calavera negra</b><small>Tropa aérea · 200 de vida base</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="blackBalloon"><i>pts</i></span></label>
             <label class="reward-row"><span class="reward-badge sky-badge">☁</span><span class="reward-name"><b>Globo de calavera lila</b><small>Tropa aérea · 300 de vida base</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="purpleBalloon"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge lilac-badge">♜</span><span class="reward-name"><b>Rey duende de roca</b><small>Jefe terrestre · 1.500 de vida · se aturde cada 10 impactos</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="bost"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge sky-badge">☠</span><span class="reward-name"><b>Barco aéreo</b><small>Jefe volador · 1.900 de vida · deja esqueletos lilas</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="aereo"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge lilac-badge">◆</span><span class="reward-name"><b>Gólem de cristales</b><small>900 de vida · se divide en 3 fragmentos de 180</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="crystalGolem"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge lilac-badge">◇</span><span class="reward-name"><b>Fragmento de cristal</b><small>Parte del gólem · 180 de vida</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="crystalShard"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge dark-badge">♨</span><span class="reward-name"><b>Dragón</b><small>Jefe aéreo · 2.800 de vida · fuego contra las torres</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="dragon"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge lilac-badge">☠</span><span class="reward-name"><b>Nigromante</b><small>4.800 de vida en oleada 50 · 10.000 en 100 · invoca esqueletos lilas</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="necromancer"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge sky-badge">◆</span><span class="reward-name"><b>Trol cristalino</b><small>Enemigo grande · 500 de vida base · baja recompensa</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="troll"><i>pts</i></span></label>
+            <label class="reward-row"><span class="reward-badge lilac-badge">♙</span><span class="reward-name"><b>Bruja · semi-BOST</b><small>Oleada 100 · 75% de la vida del Nigromante · invoca al recibir impactos</small></span><span class="number-wrap"><input type="number" min="0" max="9999" step="1" data-reward="witch"><i>pts</i></span></label>
           </div>
           <div class="admin-actions"><button class="secondary-button" id="resetSettings">Restaurar valores iniciales</button><span class="save-status" id="saveStatus">Guardado automáticamente</span></div>
         </section>
@@ -51,10 +59,10 @@
       <section class="admin-card rules-card">
         <div class="admin-card-head"><span class="admin-icon">⌖</span><div><span class="section-kicker">REGLAS DEL SENDERO</span><h2>Valores iniciales del juego</h2></div></div>
         <div class="rules-grid">
-          <div class="rule-item"><span>OLEADAS AÉREAS</span><b>Desde la oleada 5</b><small>Un globo cada 5 oleadas; alternan negro y lila.</small></div>
+          <div class="rule-item"><span>JEFES</span><b>Oleadas 10 a 100</b><small>Gólem 10 · rey duende 20 · barco 30 · dragón 40 · Nigromante 50 y 100. En cada oleada 60–100 salen juntos; en la 100 también aparece la bruja semi-BOST.</small></div>
           <div class="rule-item"><span>GLOBOS</span><b>200 / 300 de vida</b><small>Negro / lila · dejan esqueletos pequeños en la ruta.</small></div>
-          <div class="rule-item"><span>ESQUELETOS</span><b>50 / 100 de vida</b><small>Normal / ojos lilas.</small></div>
-          <div class="rule-item"><span>TORRES</span><b>4 familias mejorables</b><small>Mortero: solo tropas terrestres.</small></div>
+          <div class="rule-item"><span>ESQUELETOS</span><b>50 / 100 de vida</b><small>Normal / ojos lilas; empiezan en 8 por oleada y aumentan hasta 42. Desde la oleada 30, la mitad son lilas.</small></div>
+          <div class="rule-item"><span>TORRES</span><b>7 familias</b><small>Fuegos: 300 pts, 80 de daño y solo aire. Cañón: 200 pts, 50 de daño a 3 terrestres. Juicio: meteoro de área, 1.000 pts y alcance amplio.</small></div>
         </div>
       </section>
       <footer class="game-footer"><span>© LA DEFENSA DE LOS PORTALES</span><span>Los cambios se guardan en este dispositivo <b>✦</b></span><a href="index.html">VOLVER AL MAPA ↗</a></footer>

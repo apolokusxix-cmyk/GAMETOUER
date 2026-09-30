@@ -1,12 +1,12 @@
 (() => {
   'use strict';
   const key = 'defensa_portales_settings_v1';
-  const defaults = { difficulty: 'normal', rewards: { skeleton: 5, lilac: 12, blackBalloon: 40, purpleBalloon: 60 } };
+  const defaults = { difficulty: 'normal', rewards: { skeleton: 5, lilac: 14, blackBalloon: 45, purpleBalloon: 65, bost: 140, aereo: 110, crystalGolem: 180, crystalShard: 30, dragon: 300, necromancer: 650, troll: 15, witch: 450 } };
   const factors = {
-    easy: { hp: '×0,78', speed: '×0,84' },
-    normal: { hp: '×1,00', speed: '×1,00' },
-    hard: { hp: '×1,35', speed: '×1,14' },
-    nightmare: { hp: '×1,80', speed: '×1,30' }
+    easy: { hp: '×0,78', speed: '×0,84', cost: '×0,90' },
+    normal: { hp: '×1,00', speed: '×1,00', cost: '×1,00' },
+    hard: { hp: '×1,35', speed: '×1,14', cost: '×1,15' },
+    nightmare: { hp: '×1,80', speed: '×1,30', cost: '×1,30' }
   };
   let saveTimer;
 
@@ -25,6 +25,7 @@
   const rewardInputs = [...document.querySelectorAll('[data-reward]')];
   const hpLabel = document.getElementById('hpFactorLabel');
   const speedLabel = document.getElementById('speedFactorLabel');
+  const costLabel = document.getElementById('costFactorLabel');
   const saveStatus = document.getElementById('saveStatus');
 
   function paint() {
@@ -33,6 +34,7 @@
     const stat = factors[settings.difficulty] || factors.normal;
     hpLabel.textContent = stat.hp;
     speedLabel.textContent = stat.speed;
+    costLabel.textContent = stat.cost;
   }
 
   function save() {

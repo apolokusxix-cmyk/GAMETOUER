@@ -10,6 +10,6 @@ Necesita Python 3 instalado en Windows. No necesita instalar bibliotecas adicion
 
 La página Administrar permite ajustar la dificultad y los puntos por enemigo. Esos valores se guardan en el dispositivo desde el que juegas.
 
-Los mapas y los sprites de las torres están guardados en assets. Mantén esa carpeta junto a los demás archivos.
+Los mapas, las ilustraciones HD de enemigos y torres y el resto de recursos están en esta misma carpeta que index.html. Mantén juntos todos los archivos al subir el juego.
 
 Las guías de movimiento de las tropas terrestres y aéreas no se dibujan en el mapa. Los globos vuelan por la ruta alternativa; los esqueletos que dejan caer aterrizan sobre el camino de arena.
